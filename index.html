@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+<title>Document</title>
+	<style>
+
+	* {
+			font-family: 'Krona One', sans-serif;
+	}
+
+	body {
+		background: url('background.jpg')no-repeat center center fixed;
+    	background-size: cover;
+	}
+
+	h1 {
+		font-size: 22px;
+	}
+
+	.question {
+		text-align: center;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 400px;
+    height: 200px;
+	padding: 10px;
+}
+
+	</style>
+</head>
+<body>
+
+		<div class="question" value="Bruce">
+		<h1 style="color: red;">Batman's first name is?</h1>
+			<label><input type="radio" name="q1" value="Bruce"> Bruce</label>
+			<label><input type="radio" name="q1" value="Mark"> Mark</label>
+			<label><input type="radio" name="q1" value="Steven"> Steven</label>
+			<br>
+			<br>
+			<button>Next</button>
+		</div>
+
+		<div class="question" style="display: none;">
+		<h1 style="color: red;">Spiderman lives in:</h1>
+			<label><input type="radio" name="q2" value="New Jersey"> New Jersey</label>
+			<label><input type="radio" name="q2" value="New York"> New York</label>
+			<label><input type="radio" name="q2" value="Boston"> Boston</label>
+			<br>
+			<br>
+			<button>Next</button>
+		</div>
+
+		<div class="question" style="display: none;">
+		<h1 style="color: red;">Batman or Superman?</h1>
+			<label><input type="radio" name="q3" value="Spiderman">Spiderman</label>
+			<label><input type="radio" name="q3" value="Superman">Superman</label>
+			<label><input type="radio" name="q3" value="Batman">Batman</label>
+			<br>
+			<br>
+			<button>Next</button>
+		</div>
+
+		<div class="question" style="display: none;">
+		<h1 style="color: red;">Who is stronger, Mr. Ortega or Ms. Samuel?</h1>
+			<label><input type="radio" name="q4" value="Ortega">Ortega, no question</label>
+			<label><input type="radio" name="q4" value="Samuel">Ms. Samuel...</label>
+			<label><input type="radio" name="q4" value="Ms. Joseph">Ms. Joseph</label>
+			<br>
+			<br>
+			<button>Next</button>
+		</div>
+
+		<div class="question" style="display: none;">
+		<h1 style="color: red;">How many claws does Wolverine have?</h1>
+			<label><input type="radio" name="q5" value="2"> 2</label>
+			<label><input type="radio" name="q5" value="4"> 4</label>
+			<label><input type="radio" name="q5" value="6"> 6</label>
+			<br>
+			<br>
+			<button id="totalScore">Finish</button>
+		</div>
+		
+
+		<div class="question" style="display: none;">
+		<h1 style="color: red;">You Scored:</h1>
+			<h1 id="score"></h1>
+		</div>
+
+		<script>
+
+			var one = "Bruce";
+			var two = "New York";
+			var three = "Batman";
+			var four = "Samuel";
+			var five = 6;
+			var score = 0;
+			
+			var button = document.getElementsByTagName('button');
+
+			for(i=0; i<button.length; i++) {
+
+				button[i].onclick = function() {
+
+					this.parentElement.style.display = 'none';
+
+					this.parentElement.nextElementSibling.style.display = 'block';
+					
+				};
+			}
+
+			document.getElementById('totalScore').onclick = function() {
+
+				this.parentElement.style.display = 'none';
+
+				this.parentElement.nextElementSibling.style.display = 'block';
+
+					 first = document.querySelector('input[name="q1"]:checked').value;
+					 second = document.querySelector('input[name="q2"]:checked').value;
+					 third = document.querySelector('input[name="q3"]:checked').value;
+					 fourth = document.querySelector('input[name="q4"]:checked').value;
+					 fifth = document.querySelector('input[name="q5"]:checked').value;
+					 
+			
+					if (first == one) {
+						score++;
+					} 
+
+					if (second == two) {
+						score++;
+					} 
+
+					if (third == three) {
+						score++;
+					} 
+
+					if (fourth == four) {
+						score++;
+					} 
+
+					if (fifth == five) {
+						score++;
+					} 
+
+					document.getElementById('score').innerHTML = score;
+
+			}
+
+
+			
+		
+
+
+		</script>
+</body>
+</html>
+
